@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "Exercise01", FormMethod.Get))
+{
+    <div>
+        <h4>Using Html.DropDownList</h4>
+        @Html.DropDownList("Countries")
+        <button type="submit" value="showCountryCode">Show country code</button>
+        @if (ViewBag.CountryCode != null)
+        {
+            <div>
+                <strong>Country code: </strong>@ViewBag.CountryCode
+            </div>
+        }
+    </div>
+
+    @*<div>
+        <h4>Using foreach-loop</h4>
+        <select id="countries2" name="countries2">
+            @foreach (SelectListItem li in ViewBag.Countries)
+            {
+                <option value="@li.Value">@li.Text</option>
+            }
+        </select>
+        <input type="submit" name="showCountryCode" value="Show country code" />
+        @if (ViewBag.CountryCode2 != null)
+        {
+            <div>
+                <strong>Country code: </strong>@ViewBag.CountryCode2
+            </div>
+        }
+    </div>*@
+}
+
+<br />
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label>Country:</label> @Html.TextBox("country")<br />
+        <label>Code:</label> @Html.TextBox("code")<br />
+        <input type="submit" name="addCountry" value="Add" />
+    </div>
+}
