@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Breakfast order</h1>
+
+@using (Html.BeginForm())
+{
+    <p>Your name: @Html.TextBox("fullname")</p>
+    <p>Room number: @Html.TextBox("roomnumber")</p>
+
+    <p>
+        What would you like for breakfast?<br /><br />
+        @foreach (SelectListItem item in ViewBag.BreakfastTypes)
+        {
+            //Det her skal laves om
+            @Html.CheckBox("menuitem", item)
+        }
+    </p>
+
+    <p>When: @Html.TextBox("time")</p>
+
+    <p>
+        <input type="submit" value="Order" />
+    </p>
+}
+
