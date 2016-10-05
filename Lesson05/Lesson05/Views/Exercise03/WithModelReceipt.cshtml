@@ -1,0 +1,21 @@
+﻿@using System.Globalization;
+
+@model Lesson05.Models.BreakfastOrder
+
+@{
+    ViewBag.Title = "Breakfast Order Receipt - With model";
+    Layout = null;
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p>Good morning @Html.DisplayFor(m => m.Fullname)!</p>
+
+<p>
+    You have ordered: <strong>@Html.DisplayFor(m => m.Breakfast)</strong><br />
+    Total price: <strong>@Html.DisplayFor(m => m.TotalOrderPrice)</strong>
+</p>
+@{ 
+    string formatedDate = Model.DeliveryDate.ToString("D", CultureInfo.CreateSpecificCulture("en-us"));
+}
+<p>Your order will be prepared and delivered to room @Html.DisplayFor(m => m.Roomnumber), @Html.DisplayFor(m => formatedDate).</p>

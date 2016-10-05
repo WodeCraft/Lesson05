@@ -22,7 +22,7 @@
         }
     </p>
 
-    <p>When: <input type="date" id="time" name="time" /></p>
+    <p>When: @Html.TextBox("time", DateTime.Now.ToString(), new { Type = "date" })</p>
 
     <p>
         <input type="submit" value="Order" />

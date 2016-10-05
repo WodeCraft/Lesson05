@@ -1,8 +1,34 @@
 ﻿@using Lesson05.Models;
 
+@model Lesson05.Models.BreakfastOrder
+
 @{
-    ViewBag.Title = "WithModel";
+    ViewBag.Title = "Breakfast Order - WithModel";
+    Layout = null;
+    Html.EnableClientValidation(false);
 }
 
-<h2>WithModel</h2>
+<h1>@ViewBag.Title</h1>
+
+@using (Html.BeginForm("WithModel", "Exercise03", FormMethod.Post))
+{
+    <p>Your name: @Html.EditorFor(m => m.Fullname)</p>
+    <p>Room number: @Html.EditorFor(m => m.Roomnumber)</p>
+
+    <p>
+        What would you like for breakfast?<br /><br />
+        @foreach (Breakfast item in Enum.GetValues(typeof(Breakfast)))
+        {
+            //Det her skal laves om
+            @Html.CheckBox("menuitem", new { value = item }) @item.ToString()
+            <br />
+        }
+    </p>
+
+    <p>When: @Html.EditorFor(m => m.DeliveryDate)</p>
+
+    <p>
+        <input type="submit" value="Order" />
+    </p>
+}
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Lesson05.Models
 {
@@ -9,8 +9,12 @@ namespace Lesson05.Models
         public string Fullname { get; set; }
         public int Roomnumber { get; set; }
 
-        public List<Breakfast> Breakfast { get; set; }
+        public string Breakfast { get; set; }
 
+        public decimal TotalOrderPrice { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime DeliveryDate { get; set; }
 
         public BreakfastOrder()

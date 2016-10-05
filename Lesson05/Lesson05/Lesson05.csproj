@@ -159,6 +159,7 @@
     <Content Include="Views\Exercise03\Index.cshtml" />
     <Content Include="Views\Exercise03\WithModel.cshtml" />
     <Content Include="Views\Exercise03\Receipt.cshtml" />
+    <Content Include="Views\Exercise03\WithModelReceipt.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lesson05.Models;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -42,13 +43,13 @@ namespace Lesson05.Controllers
             string[] menuItems = fc["menuitem"].Split(',');
             List<string> selectedBreakfast = new List<string>();
             decimal totalPrice = 0M;
-            foreach (string bfi in menuItems)
+            foreach (string breakfastItem in menuItems)
             {
-                if (!"false".Equals(bfi))
+                if (!"false".Equals(breakfastItem))
                 {
-                    var bft = breakfastTypesDict.Where(bt => bt.Key.Equals(bfi)).Single();
-                    selectedBreakfast.Add(string.Format("{0} ({1:0.00})", bfi, bft.Value));
-                    totalPrice += bft.Value;
+                    var breakfastType = breakfastTypesDict.Where(bt => bt.Key.Equals(breakfastItem)).Single();
+                    selectedBreakfast.Add(string.Format("{0} ({1:0.00})", breakfastItem, breakfastType.Value));
+                    totalPrice += breakfastType.Value;
                 }
             }
 
@@ -70,9 +71,25 @@ namespace Lesson05.Controllers
         }
 
         [HttpPost]
-        public ActionResult WithModel(FormCollection fc)
+        public ActionResult WithModel(BreakfastOrder breakfastOrder, string[] menuitem)
         {
-            return View();
+            //string[] menuItems = menuitem.Split(',');
+            List<string> selectedBreakfast = new List<string>();
+            decimal totalPrice = 0M;
+            foreach (string breakfastItem in menuitem)
+            {
+                if (!"false".Equals(breakfastItem))
+                {
+                    var breakfastType = breakfastTypesDict.Where(bt => bt.Key.Equals(breakfastItem)).Single();
+                    selectedBreakfast.Add(string.Format("{0} ({1:0.00})", breakfastItem, breakfastType.Value));
+                    totalPrice += breakfastType.Value;
+                }
+            }
+
+            breakfastOrder.Breakfast = string.Join(", ", selectedBreakfast);
+            breakfastOrder.TotalOrderPrice = totalPrice;
+
+            return View("WithModelReceipt", breakfastOrder);
         }
     }
 }
