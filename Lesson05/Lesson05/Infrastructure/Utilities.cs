@@ -8,6 +8,7 @@ namespace Lesson05.Infrastructure
     {
         /// <summary>
         /// Why using this when you can do the same by using either Linq or a Lambda expression?
+        /// Only functionality this brings is the ability to reset the selected item!
         /// </summary>
         /// <param name="selectList"></param>
         public static void SortSelectList(List<SelectListItem> selectList, string selectedCode)
