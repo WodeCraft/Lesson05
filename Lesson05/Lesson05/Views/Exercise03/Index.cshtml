@@ -1,6 +1,8 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Breakfast Order";
+    Layout = null;
+    Html.EnableClientValidation(false);
 }
 
 <h1>Breakfast order</h1>
@@ -15,11 +17,12 @@
         @foreach (SelectListItem item in ViewBag.BreakfastTypes)
         {
             //Det her skal laves om
-            @Html.CheckBox("menuitem", item)
+            @Html.CheckBox("menuitem", new { value = item.Value }) @item.Text
+            <br />
         }
     </p>
 
-    <p>When: @Html.TextBox("time")</p>
+    <p>When: <input type="date" id="time" name="time" /></p>
 
     <p>
         <input type="submit" value="Order" />
