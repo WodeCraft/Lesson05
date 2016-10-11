@@ -1,0 +1,31 @@
+﻿@model Lesson05.Models.ParkingTicketMachine
+
+@{
+    ViewBag.Title = "Parking Ticket Machine";
+    Layout = null;
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.LabelFor(m => m.TimeNow) @Html.DisplayFor(m => m.TimeNow)<br />
+        @Html.LabelFor(m => m.PaidUntil) @Html.DisplayFor(m => m.PaidUntil)
+    </p>
+    <p>@Html.LabelFor(m => m.Info) @Html.DisplayFor(m => m.Info)</p>
+    <p>@Html.HiddenFor(m => m.AmountInserted)</p>
+
+    <h2>Coin Insert</h2>
+    <input type="submit" id="kr" name="kr" value="1 kr" />
+    <input type="submit" id="kr" name="kr" value="2 kr" />
+    <input type="submit" id="kr" name="kr" value="5 kr" />
+    <input type="submit" id="kr" name="kr" value="10 kr" />
+    <input type="submit" id="kr" name="kr" value="20 kr" />
+
+    <br /><br />
+    <input type="submit" id="confirm" name="confirm" value="confirm" />
+    <input type="submit" id="cancel" name="cancel" value="cancel" />
+
+
+}

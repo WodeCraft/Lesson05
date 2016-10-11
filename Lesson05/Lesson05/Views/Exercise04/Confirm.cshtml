@@ -1,0 +1,11 @@
+﻿@model Lesson05.Models.ParkingTicketMachine
+@{
+    ViewBag.Title = "Parking Ticket";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    Time issued: @String.Format("{0:HH:mm}", Model.TimeNow) <br />
+    Parking paid until: @String.Format("{0:HH:mm}", Model.PaidUntil)
+</p>

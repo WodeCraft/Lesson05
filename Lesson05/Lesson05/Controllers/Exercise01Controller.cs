@@ -1,5 +1,5 @@
-﻿using Lesson05.Infrastructure;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Lesson05.Controllers
@@ -71,11 +71,15 @@ namespace Lesson05.Controllers
             //countryList = countryList.OrderBy(li => li.Text).ToList<SelectListItem>();
 
             // Using a Lambda expression to sort the list
-            //countryList.Sort((a, b) => a.Text.CompareTo(b.Text));
+            countryList.Sort((a, b) => a.Text.CompareTo(b.Text));
+
+            // Select the newly inserted Country
+            // Can be used by both Linq and Lambda version
+            countryList.Where(c => c.Value == code).Single().Selected = true;
 
             // Using the utility class
             // This method will make it possible to reset the selected item in the list
-            Utilities.SortSelectList(countryList, code);
+            //Utilities.SortSelectList(countryList, code);
 
             ViewBag.Countries = countryList;
             ViewBag.CountryCode = code;

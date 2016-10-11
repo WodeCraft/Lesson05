@@ -136,11 +136,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Exercise01Controller.cs" />
     <Compile Include="Controllers\Exercise03Controller.cs" />
+    <Compile Include="Controllers\Exercise04Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Utilities.cs" />
     <Compile Include="Models\BreakfastOrder.cs" />
+    <Compile Include="Models\ParkingTicketMachine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +162,8 @@
     <Content Include="Views\Exercise03\WithModel.cshtml" />
     <Content Include="Views\Exercise03\Receipt.cshtml" />
     <Content Include="Views\Exercise03\WithModelReceipt.cshtml" />
+    <Content Include="Views\Exercise04\Index.cshtml" />
+    <Content Include="Views\Exercise04\Confirm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
